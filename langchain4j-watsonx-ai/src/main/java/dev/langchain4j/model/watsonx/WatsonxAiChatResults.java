@@ -5,21 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-import java.util.Map;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WatsonxAiChatResponse {
+public class  WatsonxAiChatResults {
 
-        String modelId;
+    String generatedText;
 
-        Date createdAt;
+    Integer generatedTokenCount;
 
-        WatsonxAiChatResults results;
+    Integer inputTokenCount;
 
-        Map<String, Object> system;
+    String stopReason;
 
 }

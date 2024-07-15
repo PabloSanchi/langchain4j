@@ -5,16 +5,16 @@ import retrofit2.http.*;
 
 public interface WatsonxAiApi {
 
-    @POST("/ml/v1/text/generation?version=2023-05-29")
+    @POST("/ml/v1/text/generation")
     @Headers({"Content-Type: application/json"})
-    Call<WatsonxAiChatResponse> completion(@Header("Authorization") String authorization, @Body WatsonxAiChatRequest request);
+    Call<WatsonxAiChatResponse> completion(@Header("Authorization") String authorization, @Query("version") String version, @Body WatsonxAiChatRequest request);
 
-    @POST("/ml/v1/text/generation_stream?version=2023-05-29")
+    @POST("/ml/v1/text/generation_stream")
     @Headers({"Content-Type: application/json"})
     @Streaming
-    Call<WatsonxAiChatResponse> streamingCompletion(@Header("Authorization") String authorization, @Body WatsonxAiChatRequest request);
+    Call<WatsonxAiChatResponse> streamingCompletion(@Header("Authorization") String authorization, @Query("version") String version, @Body WatsonxAiChatRequest request);
 
-    @POST("ml/v1/text/embeddings?version=2023-05-29")
-    Call<WatsonxAiEmbeddingResponse> embed(@Header("Authorization") String authorization, @Body WatsonxAiEmbeddingRequest request);
+    @POST("ml/v1/text/embeddings")
+    Call<WatsonxAiEmbeddingResponse> embed(@Header("Authorization") String authorization, @Query("version") String version, @Body WatsonxAiEmbeddingRequest request);
 
 }
